@@ -1,0 +1,12 @@
+app_identifier("com.skindetect.ai") # The bundle identifier of your app
+apple_id("megabeedev@icloud.com") # Your Apple email address
+
+itc_team_id("124339795") # App Store Connect Team ID
+team_id("BPKVD43NF3") # Developer Portal Team ID
+
+ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "tmfp-anod-wtaq-vjjo"
+ENV["FASTLANE_USER"] = "megabeedev@icloud.com"
+
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

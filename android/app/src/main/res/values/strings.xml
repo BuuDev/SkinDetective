@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Skin Detective</string>
+    <string name="default_notification_channel_id">high_importance_channel</string>
+    <string name="facebook_app_id">978158339757472</string>
+    <string name="fb_login_protocol_scheme">fb978158339757472</string>
+    <string name="facebook_client_token">49c73b2f5d984ceddf68f4771ca5ce7d</string>
+</resources>

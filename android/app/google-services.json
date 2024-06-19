@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "136843124373",
+    "project_id": "skindetective-be13d",
+    "storage_bucket": "skindetective-be13d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136843124373:android:7a12c03c03dc09ba00859c",
+        "android_client_info": {
+          "package_name": "com.ai.skindect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136843124373-8fme9g1i7r1r0ibde4bm2a59rqc6ub71.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ai.skindect",
+            "certificate_hash": "8e07bf7e02e035cd0f80f826172622c7b7f1aa2d"
+          }
+        },
+        {
+          "client_id": "136843124373-l4dfgnrmbcp9tjlu5ua1036j165eg28f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ai.skindect",
+            "certificate_hash": "19986c19ce3da385a227f4997e833e5d7b0b96f6"
+          }
+        },
+        {
+          "client_id": "136843124373-3bmv5md6k0t743jq79p2hpq38lt9q4t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcxCPdAsXigjNlNeExk8iDp4wWFwnTkBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136843124373-3bmv5md6k0t743jq79p2hpq38lt9q4t7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "136843124373-qj6gnr9md9mi0rcp13t86gtacu13i5gp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ai.skindect"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,123 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+ext.versionMajor = 1
+ext.versionMinor = 0
+ext.versionPatch = 0
+
+//Build number dành cho dev build test
+ext.versionBuild = 6
+
+android {
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    packagingOptions {
+        exclude 'lib/**/libtranslate_jni.so'
+        exclude 'lib/**/libdigitalink.so'
+        exclude 'lib/**/libxeno_native.so'
+        exclude 'lib/**/libmlkitcommonpipeline.so'
+        exclude 'lib/**/libbarhopper_v2.so'
+        exclude 'lib/**/libbarhopper_v3.so'
+        exclude 'lib/**/libclassifier_jni.so'
+        exclude 'lib/**/libpredictor_jni.so'
+        exclude 'lib/**/libtextclassifier3_jni_tclib.so'
+        // exclude 'lib/**/libface_detector_v2_jni.so'
+        exclude 'lib/**/libtensorflowlite_jni.so'
+        exclude 'lib/**/liblanguage_id_jni.so'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.ai.skindect"
+        minSdkVersion 23
+        targetSdkVersion 31
+        versionCode generateVersionCode()
+        versionName generateVersionName()
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file("keystore/debug.keystore")
+            storePassword 'android'
+        }
+
+        release {
+            keyAlias 'androidrelease'
+            keyPassword 'android'
+            storeFile file("keystore/release.keystore")
+            storePassword 'android'
+        }
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+private Integer generateVersionCode() {
+    return ext.versionMajor * 1000000 + ext.versionMinor * 10000 + ext.versionPatch * 100 + ext.versionBuild
+}
+
+private String generateVersionName() {
+    String versionName = "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}"
+    return versionName;
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.work:work-runtime-ktx:2.7.0'
+}
+
+// Firebase
+apply plugin: 'com.google.gms.google-services'
